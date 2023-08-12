@@ -1,15 +1,16 @@
-const Card = (props) => {
+import styles from '../Styles/card.module.css';
+const Card = ({recipe}) => {
   return (
-    <div>
+    <div className={styles.card}>
       <div>
-        <img src={/* props.image */} alt={/* props.title */} />
+        <img src={recipe.image} alt={recipe.label} className={styles.img}/>
       </div>
       <div>
         <a href="props.url">
-          <h2>{/* props.title */}</h2>
+          <h2>{recipe.label}</h2>
         </a>
-        <a href={/* props.url */}>
-          <button>See More...</button>
+        <a href={recipe.uri}>
+          <button className={styles.btn}>See More...</button>
         </a>
       </div>
     </div>
