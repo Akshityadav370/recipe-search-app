@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { searchRecipe } from "../api";
+import { searchRecipe, todoList } from "../api";
 import styles from "../Styles/home.module.css";
 import Card from "../Components/Card";
 
@@ -12,11 +12,17 @@ const Home = () => {
       const response = await searchRecipe(input);
       const data = response.hits;
       const allRecipes = data.map((element) => element.recipe);
-      console.log(allRecipes);
+      // console.log(allRecipes);
       setRecipes(allRecipes);
     };
 
+    const getTodoList = async () => {
+      const response = await todoList();
+      console.log(response);
+    }
+
     getRecipes();
+    getTodoList();
   }, [input]);
 
   return (
